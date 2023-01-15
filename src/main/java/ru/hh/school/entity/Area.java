@@ -4,12 +4,12 @@ import javax.persistence.*;
 
 //TODO: оформите entity
 @Entity
+@Table(name = "area")
 public class Area {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "area_id")
   private Integer id;
-  @Column(name = "area_name")
   private String name;
 
   public Area(){}

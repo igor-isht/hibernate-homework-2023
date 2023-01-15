@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 //TODO: оформите entity
 @Entity
+@Table(name = "resume")
 public class Resume {
   // TODO: сделать так, чтобы id брался из sequence-а
   // таким образом, мы сможем отправлять в бд запросы батчами.
@@ -17,14 +18,14 @@ public class Resume {
   // https://vladmihalcea.com/from-jpa-to-hibernates-legacy-and-enhanced-identifier-generators/
 
   @Id
-  @GeneratedValue(generator = "resume_seq_id", strategy = GenerationType.SEQUENCE)
-  @SequenceGenerator(name = "resume_seq_id", allocationSize = 10)
-  @Column(name = "resume_id")
+  @GeneratedValue(generator = "resume_id_seq", strategy = GenerationType.SEQUENCE)
+  @SequenceGenerator(name = "resume_id_seq", allocationSize = 10)
+  @Column(name = "id")
   private Integer id;
   @Column(name = "description")
   private String description;
 
-  Resume() {}
+  public Resume() {}
 
   public Resume(String description) {
     this.description = description;

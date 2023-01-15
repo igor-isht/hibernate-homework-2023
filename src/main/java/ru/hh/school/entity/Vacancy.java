@@ -16,6 +16,7 @@ import java.util.Objects;
 
 //TODO: оформите entity
 @Entity
+@Table(name = "vacancy")
 public class Vacancy {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,22 +29,21 @@ public class Vacancy {
   @JoinColumn(name = "area_id")
 
   private Area area;
-  @Column(name = "vacancy_title")
 
   private String title;
-  @Column(name = "vacancy_description")
+
   private String description;
   @Column(name = "compensation_from")
   private Integer compensationFrom;
   @Column(name = "compensation_to")
   private Integer  compensationTo;
-  @Column(name = "is_compensation_gross")
+  @Column(name = "compensation_gross")
 
   private Boolean compensationGross;
   @CreationTimestamp
-  @Column(name = "created_on")
+  @Column(name = "creation_time")
   private LocalDateTime creationTime;
-  @Column(name = "archiving_on")
+  @Column(name = "archiving_time")
   private LocalDateTime archivingTime;
 
   public Vacancy() {

@@ -9,10 +9,11 @@ import org.hibernate.annotations.CreationTimestamp;
 
 //TODO: оформите entity
 @Entity
+@Table(name = "employer")
 public class Employer {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "company_id")
+  @Column(name = "employer_id")
   private Integer id;
   @Column(name = "company_name")
   private String companyName;
@@ -20,14 +21,14 @@ public class Employer {
   // не используйте java.util.Date
   // https://docs.jboss.org/hibernate/orm/5.3/userguide/html_single/Hibernate_User_Guide.html#basic-datetime-java8
   @CreationTimestamp
-  @Column(name = "created_on")
+  @Column(name = "creation_time")
   private LocalDateTime creationTime;
   @OneToMany(mappedBy = "employer")
   private List<Vacancy> vacancies = new ArrayList<>();
   @Column(name = "block_time")
   private LocalDateTime blockTime;
 
-  // public Employer (){}
+  public Employer (){}
 
   public List<Vacancy> getVacancies() {
     return vacancies;
